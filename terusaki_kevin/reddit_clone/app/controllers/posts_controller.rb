@@ -28,11 +28,18 @@ class PostsController < ApplicationController
 	def update
 		@post = Post.find(params[:id])
 
-		if @post.update
+		if @post.update(post_params)
 			redirect_to @post
 		else
 			rerender 'update'
 		end
+	end
+
+	def destroy
+		@post = Post.find(params[:id])
+		@post.destroy
+
+		redirect_to posts_path
 	end
 
 	private 
