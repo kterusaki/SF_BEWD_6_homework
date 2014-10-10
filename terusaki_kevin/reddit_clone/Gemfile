@@ -29,6 +29,7 @@ gem 'spring',        group: :development
 # debugging gems
 gem 'pry'
 gem 'better_errors'
+gem "binding_of_caller"
 gem 'pry-byebug'
 
 # Use ActiveModel has_secure_password
