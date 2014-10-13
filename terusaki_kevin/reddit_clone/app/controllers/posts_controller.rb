@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
 	def index
-		@posts = Post.order(vote: :desc)
+		@posts = Post.search(params[:search])
+		#@posts = Post.order(vote: :desc)
 	end
 
 	def new
