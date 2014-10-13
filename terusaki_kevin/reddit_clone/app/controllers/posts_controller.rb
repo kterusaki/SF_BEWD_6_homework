@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
 	def index
-		@posts = Post.all
+		@posts = Post.order(vote: :desc)
 	end
 
 	def new
@@ -11,7 +11,7 @@ class PostsController < ApplicationController
 		@post = Post.new(post_params)
 
 		if @post.save
-			redirect_to @post
+			redirect_to posts_path
 		else
 			render 'new'
 		end
@@ -42,8 +42,23 @@ class PostsController < ApplicationController
 		redirect_to posts_path
 	end
 
+	def voting
+		@post = Post.find(params[:id])
+		if params[:commit] == 'Upvote'
+			count = @post.vote += 1
+		else
+			count = @post.vote -= 1
+		end
+
+		if @post.update_attributes(:vote => count)
+			redirect_to @post
+		else
+			rerender 'show'
+		end
+	end
+
 	private 
 		def post_params
-			params.require(:post).permit(:title, :url)
+			params.require(:post).permit(:title, :url, :vote)
 		end
 end
