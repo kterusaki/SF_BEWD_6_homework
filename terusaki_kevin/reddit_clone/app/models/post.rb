@@ -1,4 +1,5 @@
 class Post < ActiveRecord::Base
+	has_many :comments, dependent: :destroy
 	validates :title, :url, presence: true
 	before_create :default_values
 
