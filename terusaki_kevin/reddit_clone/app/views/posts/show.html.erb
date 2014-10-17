@@ -2,7 +2,7 @@
 <p> <%= @post.url %> </p>
 <p> <%= @post.vote %> </p>
 
-<%= form_for @post, :url => {action: :voting}, :method => "put" do |f| %>
+<%= form_for @post, :url => {action: :voting}, :method => "patch" do |f| %>
 	<span> <%= f.submit "Upvote", class: 'btn btn-primary'%> </span>
 	<span> <%= f.submit "Downvote", class: 'btn btn-primary' %> </span>
 <% end %>

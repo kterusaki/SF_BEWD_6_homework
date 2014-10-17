@@ -1,7 +1,19 @@
 class PostsController < ApplicationController
 	def index
-		@posts = Post.search(params[:search])
-		#@posts = Post.order(vote: :desc)
+		@post = params[:post]
+
+		# show posts based on search keyword
+		if params[:post][:search]
+			if params[:post][:search]
+				puts 'in index if'
+				@posts = Post.search('test')
+
+			end
+		# otherwise, show all posts
+		else
+			puts 'in index else'
+			@posts = Post.order(vote: :desc)
+		end
 	end
 
 	def new
