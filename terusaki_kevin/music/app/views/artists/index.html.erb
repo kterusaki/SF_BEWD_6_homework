@@ -1,0 +1,19 @@
+<h1>Artists</h1>
+
+<div>
+	<%= link_to 'New Artist', new_artist_path %>
+</div><br/>
+<table>
+	<tbody>
+		<tr>
+			<th>Name</th>
+			<th>Age</th>
+		</tr>
+		<% @artists.each do |artist| %>
+		<tr>
+			<td> <%= link_to artist.name, artist_path(artist) %> </td>
+			<td> <%= artist.age %> </td>
+		</tr>
+		<% end %>
+	</tbody>
+</table>

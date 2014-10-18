@@ -1,4 +1,4 @@
-class PostsController < ApplicationController
+.rclass PostsController < ApplicationController
 	def index
 		@post = params[:post]
 
@@ -44,7 +44,7 @@ class PostsController < ApplicationController
 		if @post.update(post_params)
 			redirect_to @post
 		else
-			rerender 'update'
+			render 'edit'
 		end
 	end
 
