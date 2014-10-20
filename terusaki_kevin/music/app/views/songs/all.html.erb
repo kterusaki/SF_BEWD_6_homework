@@ -1,6 +1,5 @@
-<h1><%= @artist.name %>'s Songs</h1>
+<h1>Songs</h1>
 
-<%= link_to 'New Song', new_artist_song_path(@artist) %> <%= link_to 'Home', artists_path %>
 <table>
 	<tbody>
 		<tr>
@@ -10,11 +9,10 @@
 		</tr>
 		<% @songs.each do |song| %>
 		<tr>
-			<td> <%= link_to song.track, artist_song_path(@artist, song) %> </td>
+			<td> <%= link_to song.track, artist_song_path(song.artist_id, song) %></td>
 			<td> <%= song.time %> </td>
 			<td> <%= song.genre %> </td>
 		</tr>
 		<% end %>
 	</tbody>
 </table>
-

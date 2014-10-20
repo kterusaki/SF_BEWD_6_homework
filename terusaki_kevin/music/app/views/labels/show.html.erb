@@ -1,0 +1,24 @@
+<h1> <%= @label.name %> </h1>
+
+<h3> Artists </h3>
+
+<%= link_to 'New Artist', new_artist_path %> <%= link_to 'Edit', edit_label_path(@label) %> <%= link_to 'Delete', label_path(@label), method: :delete %>
+
+<table>
+	<tbody>
+		<tr>
+			<th>Name</th>
+			<th>Age</th>
+		</tr>
+		<% @artists.each do |artist| %>
+		<tr>
+			<td> <%= link_to artist.name, artist_path(artist) %></td>
+			<td> <%= artist.age %> </td>
+		</tr>
+		<% end %>
+	</tbody>
+</table>
+
+<%= link_to 'Back', labels_path %>
+
+

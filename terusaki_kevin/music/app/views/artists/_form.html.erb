@@ -16,6 +16,10 @@
 	</p>
 
 	<p>
+		<%= collection_select(:label , :label_id, Label.all, :id, :name, :prompt => 'Select a label') %>
+	</p>
+
+	<p>
 		<%= f.submit %>
 	</p>
 <% end %>

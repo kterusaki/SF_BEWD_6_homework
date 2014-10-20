@@ -1,5 +1,11 @@
 <h2> <%= @artist.name %> </h2>
 <p> <%= @artist.age %> </p>
+<% if @label %>
+	<p> <%= link_to @label.name , label_path(@label) %> </p>
+<% else %>
+	<p> No associated label </p>
+<% end %>
+<p> <%= link_to @artist.name, artist_songs_path(@artist) %>'s songs </p>
 
 <%= link_to 'Edit', edit_artist_path(@artist) %>
 <%= link_to 'Delete', artist_path(@artist), method: :delete %>

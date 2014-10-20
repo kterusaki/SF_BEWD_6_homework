@@ -1,0 +1,17 @@
+<h1>Labels</h1>
+
+<%= link_to 'New Label', new_label_path %>
+<table>
+	<tbody>
+		<tr>
+			<td>Name</td>
+		</tr>
+		<% @labels.each do |label| %>
+		<tr>
+			<td> <%= link_to label.name, label_path(label) %></td>
+		</tr>
+		<% end %>
+	</tbody>
+</table>
+<br/>
+<%= link_to 'Go to Artist list', artists_path %>

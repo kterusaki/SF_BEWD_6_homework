@@ -1,0 +1,16 @@
+<%= form_for @label do |f| %>
+	<% if @label.errors.any? %>
+		<div id="error_explanation">
+			<h2> <%= pluralize(@label.errors.count, 'error') %> prohibited this label from being saved</h2>
+		</div>
+	<% end %>
+
+	<p>
+		<%= f.label :name %>
+		<%= f.text_field :name %>
+	</p>
+
+	<p>
+		<%= f.submit %>
+	</p>
+<% end %>

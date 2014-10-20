@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
-  resources :artists do
-    resources :songs
-  end
+	resources :artists do
+		resources :songs
+	end
 
-  root 'artists#index'
+	resources :labels
+
+	get 'songs', to: 'songs#all', as: 'songs'
+
+	root 'artists#index'
 end

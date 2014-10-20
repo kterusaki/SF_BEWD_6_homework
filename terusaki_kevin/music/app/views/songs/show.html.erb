@@ -1,0 +1,7 @@
+<h1> <%= @song.track %> </h1>
+<p> <%= @song.time %> </p>
+<p> <%= @song.genre %> </p>
+
+<%= link_to 'Edit', edit_artist_song_path(@artist, @song) %>
+<%= link_to 'Delete', artist_song_path(@artist, @song), method: :delete %>
+<%= link_to 'Back', artist_songs_path(@artist) %>
