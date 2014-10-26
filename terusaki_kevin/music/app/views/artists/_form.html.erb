@@ -1,25 +1,11 @@
-<%= form_for @artist do |f| %>
-	<% if @artist.errors.any? %>
-		<div id="error_explanation">
-			<h2><%= pluralize(@artist.errors.count, "error") %> prohibited this artist from being saved </h2>
-		</div>
+<div class="well">
+	<%= simple_form_for(@artist, html: {:class => 'form-horizontal'} ) do |f| %>
+		<%= f.input :name, label: false, input_html: {:class => 'form-control droid_sans_font form_input', placeholder: "Name of Artist"} %>
+
+		<%= f.input :age, label: false, input_html: {:class => 'form-control droid_sans_font form_input', placeholder: "Age"} %>
+
+		<%= f.input :label, :collection => Label.all, :label_method => :name, :value_method => :id, :include_blank => true, label: false, input_html: {:class => 'form-control form_input droid_sans_font'} %>
+
+		<%= f.submit "Submit".html_safe, :class => 'btn btn-lg btn-success' %> 
 	<% end %>
-
-	<p>
-		<%= f.label :name %>
-		<%= f.text_field :name %>
-	</p>
-
-	<p>
-		<%= f.label :age %>
-		<%= f.text_field :age %>
-	</p>
-
-	<p>
-		<%= collection_select(:label , :label_id, Label.all, :id, :name, :prompt => 'Select a label') %>
-	</p>
-
-	<p>
-		<%= f.submit %>
-	</p>
-<% end %>
+</div>
