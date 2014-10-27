@@ -1,12 +1,17 @@
-<h2> <%= @artist.name %> </h2>
-<p> <%= @artist.age %> </p>
-<% if @label %>
-	<p> <%= link_to @label.name , label_path(@label) %> </p>
-<% else %>
-	<p> No associated label </p>
-<% end %>
-<p> <%= link_to @artist.name, artist_songs_path(@artist) %>'s songs </p>
-
-<%= link_to 'Edit', edit_artist_path(@artist) %>
-<%= link_to 'Delete', artist_path(@artist), method: :delete %>
-<%= link_to 'Back', artists_path %>
+<div class="col-xs-12">
+	<div class="row">
+		<div class="col-xs-4">
+			<%= image_tag(@artist.image, :class => 'img-rounded thumbnail img-responsive') %> 
+		</div>
+		<div class="col-xs-4 well white">
+			<h2> <%= @artist.name %> </h2>
+			<p> <%= @artist.age %> </p>
+			<% if @label %>
+				<p> <%= link_to @label.name , label_path(@label) %> </p>
+			<% else %>
+				<p> No associated label </p>
+			<% end %>
+			<p> <%= link_to @artist.name, artist_songs_path(@artist) %>'s songs </p>
+		</div>
+	</div>
+</div>

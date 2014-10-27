@@ -1,18 +1,26 @@
-<h1>Songs</h1>
+<div class="col-xs-12">
+	<h1 class="droid_sans_font">Songs</h1>
 
-<table>
-	<tbody>
-		<tr>
-			<th>Track</th>
-			<th>Time</th>
-			<th>Genre</th>
-		</tr>
-		<% @songs.each do |song| %>
-		<tr>
-			<td> <%= link_to song.track, artist_song_path(song.artist_id, song) %></td>
-			<td> <%= song.time %> </td>
-			<td> <%= song.genre %> </td>
-		</tr>
-		<% end %>
-	</tbody>
-</table>
+	<table class="table droid_sans_font">
+		<tbody>
+			<tr>
+				<th>Track</th>
+				<th>Time</th>
+				<th>Genre</th>
+				<th>Actions</th>
+			</tr>
+			<% @songs.each do |song| %>
+			<tr>
+				<td> <%= link_to song.track, artist_song_path(song.artist_id, song) %></td>
+				<td> <%= song.time %> </td>
+				<td> <%= song.genre %> </td>
+				<td>
+					<%= link_to 'Show', artist_song_path(song.artist_id, song), :class => "btn btn-primary" %>
+					<%= link_to 'Edit', edit_artist_song_path(song.artist_id, song), :class => "btn btn-default" %>
+					<%= link_to 'Destroy', artist_song_path(song.artist_id, song), method: 'delete', :class => "btn btn-danger" %>
+				</td>
+			</tr>
+			<% end %>
+		</tbody>
+	</table>
+</div>

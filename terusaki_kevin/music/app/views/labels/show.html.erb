@@ -1,24 +1,33 @@
-<h1> <%= @label.name %> </h1>
+<div class="col-xs-12">
 
-<h3> Artists </h3>
+	<h1 class="droid_sans_font"> <%= @label.name %> </h1>
 
-<%= link_to 'New Artist', new_artist_path %> <%= link_to 'Edit', edit_label_path(@label) %> <%= link_to 'Delete', label_path(@label), method: :delete %>
+	<h3 class="droid_sans_font"> Artists </h3>
 
-<table>
-	<tbody>
-		<tr>
-			<th>Name</th>
-			<th>Age</th>
-		</tr>
-		<% @artists.each do |artist| %>
-		<tr>
-			<td> <%= link_to artist.name, artist_path(artist) %></td>
-			<td> <%= artist.age %> </td>
-		</tr>
-		<% end %>
-	</tbody>
-</table>
-
-<%= link_to 'Back', labels_path %>
+	<table class="table droid_sans_font">
+		<tbody>
+			<tr>
+				<th>Name</th>
+				<th>Age</th>
+				<th>Actions</th>
+			</tr>
+			<% @artists.each do |artist| %>
+			<tr>
+				<td> <%= link_to artist.name, artist_path(artist) %></td>
+				<td> <%= artist.age %> </td>
+				<td>
+					<%= link_to 'Show', artist_path(artist), :class => "btn btn-primary" %>
+					<%= link_to 'Edit', edit_artist_path(artist), :class => "btn btn-default" %>
+					<%= link_to 'Delete', artist_path(artist), method: 'delete', :class => "btn btn-danger" %>
+				</td>
+			</tr>
+			<% end %>
+		</tbody>
+	</table>
+	<br/>
+	<div class="col-xs-1 col-xs-offset-5">
+		<%= link_to 'New Artist', new_artist_path, :class => "btn btn-success droid_sans_font" %>
+	</div>
+</div>
 
 

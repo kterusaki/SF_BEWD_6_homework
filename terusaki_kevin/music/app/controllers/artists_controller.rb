@@ -9,7 +9,10 @@ class ArtistsController < ApplicationController
 
 	def create
 		@artist = Artist.new(artist_params)
-		@artist.label_id = params[:label][:label_id].to_i
+
+		if params[:artist][:label] != ""
+			@artist.label_id = params[:artist][:label].to_i
+		end
 
 		if @artist.save
 			redirect_to artist_path(@artist)
@@ -34,7 +37,10 @@ class ArtistsController < ApplicationController
 
 	def update
 		@artist = Artist.find(params[:id])
-		@artist.label_id = params[:label][:label_id].to_i
+
+		if params[:artist][:label] != ""
+			@artist.label_id = params[:artist][:label].to_i
+		end
 
 		if @artist.update(artist_params)
 			redirect_to @artist
@@ -57,6 +63,6 @@ class ArtistsController < ApplicationController
 	private
 
 	def artist_params
-		params.require(:artist).permit(:name, :age, :label_id)
+		params.require(:artist).permit(:name, :age, :image)
 	end
 end

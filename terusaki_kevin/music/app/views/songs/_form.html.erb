@@ -1,26 +1,19 @@
-<%= form_for ([@artist, @song]) do |f| %>
-	<% if @song.errors.any? %>
-		<div id="error_explanation">
-			<h2><%= pluralize(@song.errors.count, "error") %> prohibited this song from being created</h2>
-		</div>
+<div class="well">
+	<%= simple_form_for([@artist, @song], html: {:class => 'form-horizontal'} ) do |f| %>
+		<%= f.input :track, label:false, input_html: {:class => 'form-control droid_sans_font form_input', placeholder: "Song name"} %>
+
+		<%= f.input :time, label:false, input_html: {:class => 'form-control droid_sans_font form_input', placeholder: "Time"} %>
+
+		<%= f.input :genre, label:false, input_html: {:class => 'form-control droid_sans_font form_input', placeholder: "Genre"} %>
+
+		<%= f.submit "Submit".html_safe, :class => 'btn btn-lg btn-success'%>
 	<% end %>
 
-	<p>
-		<%= f.label :track %>
-		<%= f.text_field :track %>
-	</p>
 
-	<p>
-		<%= f.label :time %>
-		<%= f.text_field :time %>
-	</p>
 
-	<p>
-		<%= f.label :genre %>
-		<%= f.text_field :genre %>
-	</p>
 
-	<p>
-		<%= f.submit %>
-	</p>
-<% end %>
+
+
+
+
+</div>

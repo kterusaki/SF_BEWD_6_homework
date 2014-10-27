@@ -4,7 +4,9 @@
 
 		<%= f.input :age, label: false, input_html: {:class => 'form-control droid_sans_font form_input', placeholder: "Age"} %>
 
-		<%= f.input :label, :collection => Label.all, :label_method => :name, :value_method => :id, :include_blank => true, label: false, input_html: {:class => 'form-control form_input droid_sans_font'} %>
+		<%= f.input :image, label: false, input_html: {:class => 'form-control droid_sans_font form_input', placeholder: "Picture" } %>
+
+		<%= f.input :label, :collection => Label.all, :label_method => :name, :value_method => :id, :include_blank => '(select if none)', label: false, input_html: {:class => 'form-control form_input droid_sans_font'} %>
 
 		<%= f.submit "Submit".html_safe, :class => 'btn btn-lg btn-success' %> 
 	<% end %>
