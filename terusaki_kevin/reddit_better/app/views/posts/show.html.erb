@@ -1,0 +1,27 @@
+<div class="col-xs-12">
+	<h1> <%= @post.title %> </h1>
+	<p> <%= @post.link %> </p>
+	<p> <%= @post.votes %> </p>
+
+	<%= form_for @post, :url => {action: :voting}, :method => "patch" do |f| %>
+		<span> <%= f.submit "Upvote", class: 'btn btn-primary'%> </span>
+		<span> <%= f.submit "Downvote", class: 'btn btn-primary' %> </span>
+	<% end %>
+
+	<h2>Comments</h2>
+	<%= render @post.comments %>
+	
+
+	<div class="col-xs-4">
+		<h2>Add a comment:</h2>
+		<%= simple_form_for([@post, @post.comments.build], html: {:class => 'form-horizontal'} ) do |f| %>
+
+			<%= f.input :author, label: false, input_html: {:class => 'form-control', placeholder: 'Commenter'} %> <br/>
+
+			<%= f.input :body, label: false, input_html: {:class => 'form-control', placeholder: 'Text'} %> <br/>
+
+	 		<%= f.submit "Submit".html_safe, :class => 'btn btn-success' %> <br/>
+
+		<% end %>
+	</div>
+</div>
